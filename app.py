@@ -14,19 +14,19 @@ build_disp = st.checkbox('Criar Gráfico de Dispersão')
 if build_hist:  # se o botão for clicado
     # escrever uma mensagem
     st.write('Criando um histograma...')
+    # criar um histograma
+    fig_hist = px.histogram(car_data, x="odometer")
+    # exibir um gráfico Plotly interativo
+    st.plotly_chart(fig_hist, use_container_width=True)
+
 
 if build_disp:  # se o botão for clicado
     # escrever uma mensagem
     st.write('Criando um gráfico de dispersão...')
-
-# criar um histograma
-fig_hist = px.histogram(car_data, x="odometer")
-# criar um gráfico de dispersão
-fig_disp = px.scatter(car_data, x="odometer", y="price")
-
-# exibir um gráfico Plotly interativo
-st.plotly_chart(fig_hist, use_container_width=True)
-st.plotly_chart(fig_disp, use_container_width=True)
+    # criar um gráfico de dispersão
+    fig_disp = px.scatter(car_data, x="odometer", y="price")
+    # exibir um gráfico Plotly interativo
+    st.plotly_chart(fig_disp, use_container_width=True)
 
 
 # Lembrar de atualizar o README.txt com resumo do projeto
