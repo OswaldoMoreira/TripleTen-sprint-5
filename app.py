@@ -14,17 +14,21 @@ build_disp = st.checkbox(
 
 if build_hist:  # se o botão for clicado
     # escrever uma mensagem
-    st.write('Histograma (Tipo vs Odometro)')
+    st.write('Histograma:)')
     # criar um histograma
-    fig_hist = px.histogram(car_data, x="odometer", y="type")
+    fig_hist = px.histogram(car_data, x="odometer", y="type", labels={
+                            'odometer': 'odometro', 'type': 'Tipo do Veículo'}, title='Tipo de Veículo vs odometro')
     # exibir um histograma Plotly interativo
     st.plotly_chart(fig_hist, use_container_width=True)
 
 
 if build_disp:  # se o botão for clicado
     # escrever uma mensagem
-    st.write('Gráfico de Dispersão (Tipo vs Odometro)')
+    st.write('Gráfico de Dispersão: (Tipo vs Odometro)')
     # criar um gráfico de dispersão
-    fig_disp = px.scatter(car_data, x="odometer", y="type")
+    fig_disp = px.scatter(car_data, x="odometer", y="type", labels={
+                          'odometer': 'odômetro', 'type': 'Tipo do Veículo'}, title='Tipo de Veículo vs odometro')
     # exibir um gráfico de dispersão Plotly interativo
     st.plotly_chart(fig_disp, use_container_width=True)
+
+# Fim do Código
