@@ -4,29 +4,27 @@ import plotly.express as px
 
 car_data = pd.read_csv('vehicles.csv')  # lendo os dados
 # Título do webapp
-st.header('Header teste, atualizar depois de entender onde isso vai kkk')
+st.header('Visualização de carros com maior quilometragem(tipo vs odometro)')
 
 # Caixas de seleção para criar um histograma e gráfico de dispersão
-build_hist = st.checkbox('Criar Histograma')
-build_disp = st.checkbox('Criar Gráfico de Dispersão')
+build_hist = st.checkbox('Criar Histograma (tipo de carro vs odometro)')
+build_disp = st.checkbox(
+    'Criar Gráfico de Dispersão (tipo de carro vs odometro)')
 
 
 if build_hist:  # se o botão for clicado
     # escrever uma mensagem
-    st.write('Criando um histograma:')
+    st.write('Histograma (Tipo vs Odometro)')
     # criar um histograma
-    fig_hist = px.histogram(car_data, x="odometer")
-    # exibir um gráfico Plotly interativo
+    fig_hist = px.histogram(car_data, x="odometer", y="type")
+    # exibir um histograma Plotly interativo
     st.plotly_chart(fig_hist, use_container_width=True)
 
 
 if build_disp:  # se o botão for clicado
     # escrever uma mensagem
-    st.write('Gráfico de Dispersão Modelo vs odometro')
+    st.write('Gráfico de Dispersão (Tipo vs Odometro)')
     # criar um gráfico de dispersão
-    fig_disp = px.scatter(car_data, x="model", y="odometer")
-    # exibir um gráfico Plotly interativo
+    fig_disp = px.scatter(car_data, x="odometer", y="type")
+    # exibir um gráfico de dispersão Plotly interativo
     st.plotly_chart(fig_disp, use_container_width=True)
-
-
-# Lembrar de atualizar o README.txt com resumo do projeto
