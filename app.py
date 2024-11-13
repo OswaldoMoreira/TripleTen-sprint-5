@@ -15,16 +15,16 @@ if build_hist:  # se o botão for clicado
     # escrever uma mensagem
     st.write('Criando um histograma:')
     # criar um histograma
-    fig_hist = px.histogram(car_data, x="odometer", y="model")
+    fig_hist = px.histogram(car_data, x="odometer")
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig_hist, use_container_width=True)
 
 
 if build_disp:  # se o botão for clicado
     # escrever uma mensagem
-    st.write('Criando um gráfico de dispersão:')
+    st.write('Gráfico de Dispersão Modelo vs odometro')
     # criar um gráfico de dispersão
-    fig_disp = px.scatter(car_data, x="odometer", y="model")
+    fig_disp = px.scatter(car_data, x="model", y="odometer")
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig_disp, use_container_width=True)
 
